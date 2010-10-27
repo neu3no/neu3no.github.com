@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Neu[:tri:]no</title>
+		<link rel="stylesheet" type="text/css" href="/style/main.css" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="keywords" content="christian neubauer, Christian Neubauer Chemnitz, Christian Neubauer Piraten, neutrino, neu3no, Freifunk, Freifubk Chemnitz, Augustusburger Straße 102, Piraten Chemnitz"/>
+		<meta name="description" content="Dies ist die offizielle Seite von Christian Neubauer aka The Neu[:tri:]no, von hier aus geht es zu allem relevanten Content von mir und über mich."/>
+		<meta name="resource-type" content="document"/>
+		<meta name="copyright" content="cc-by-nc http://creativecommons.org/licenses/by-nc/2.0/deed.de"/>
+
+		<script type="text/javascript">
+		
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-12270208-9']);
+		  _gaq.push(['_trackPageview']);
+		
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		
+		</script>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('.nick').mouseenter(function(){
+					var tmp=$(this).attr('rel');
+					$(this).attr('rel',$(this).text());
+					$(this).text(tmp);
+					
+					tmp=$('.subnick').attr('rel');
+					$('.subnick').attr('rel',$('.subnick').text());
+					$('.subnick').text(tmp);
+				});
+				var updateTrack =function(){
+					$.getJSON("http://stream.n3o.at/song.php?mount=/music.ogg",function(data){	
+						//alert{data};
+						$("#track").text("Now Playing: "+data.track+" von "+data.artist);			
+						var t=setTimeout(updateTrack,5000);
+					});
+				}
+				updateTrack();
+			});
+		</script>
+		
+		<link rel="icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="/favicon.png" type="image/png">
+		<link rel="shortcut icon" href="/favicon.png" type="image/png">
+	</head>
+	<body>
+		<div id="boxmain">
+			<div id='boxleft'>
+				<div class='img'><img src="neu3no.jpg" alt="Neu3no Avatar"/></div>
+				<h2><small rel='&nbsp;' class='subnick'>The</small> <span rel="neu3no" class='nick'>Neu[:tri:]no</span></h2>
+				<ul>
+					<li><a href="http://blog.neu3no.de/">Blog</a></li>
+					<li><a href="http://twitter.com/theneutrino">Twitter</a></li>
+					<li><a href="http://github.com/neu3no">GitHub</a></li>
+					<li><a href="http://identi.ca/theneutrino">identi.ca</a></li>
+				</ul>
+			</div>
+			<div id='boxright'>
+				<div class='img'><img src="neubauer.jpg" alt="Photo von Christian Neubauer"/></div>
+				<h2><small>Christian</small> Neubauer</h2>
+				<ul>
+					<li><a href="http://piraten-chemnitz.de/">Piraten</a></li>
+					<li><a href="http://chemnitz.freifunk.net">Freifunk</a></li>
+					<? //<li><a href="http://a102.de">Bar a102</a></li> ?>
+					<li><a href="http://www.flickr.com/photos/neu3node" >Photos</a></li>
+					<li><a href="http://www.facebook.com/neu3no">Facebook</a></li>
+				</ul>
+			</div>
+			<div id="boxcenter">
+				<h3>Kontakt</h3>
+				<ul>
+					<li>Mail: <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#109;&#097;&#105;&#108;&#064;&#110;&#101;&#117;&#051;&#110;&#111;&#046;&#100;&#101;"> &#109;&#097;&#105;&#108;&#064;&#110;&#101;&#117;&#051;&#110;&#111;&#046;&#100;&#101;</a></li>
+					<li>Jabber/GoogleTalk: <a href="&#120;&#109;&#112;&#112;:&#106;&#097;&#098;&#098;&#101;&#114;&#064;&#110;&#101;&#117;&#051;&#110;&#111;&#046;&#100;&#101;">&#106;&#097;&#098;&#098;&#101;&#114;&#064;&#110;&#101;&#117;&#051;&#110;&#111;&#046;&#100;&#101;</a></li>
+				</ul>
+			</div>
+			<div id="radio">
+				<h4>Mein kleiner loopstream</h4>
+				<audio src="http://radio.n3o.at:8000/music.ogg" controls></audio><br/><span id="track"></span><br/>
+				<span>Für Externe Player: <a href="http://radio.n3o.at:8000/music.ogg">OGG</a></span>
+			</div>
+		</div>
+	</body>
+</html>
